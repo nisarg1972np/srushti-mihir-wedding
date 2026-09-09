@@ -8,7 +8,7 @@ export default function OrnateGanesha({ className = '' }) {
       }}
     >
       <img
-        src="/ganesha-final.jpeg"
+        src={`${import.meta.env.BASE_URL}ganesha-final.jpeg`}
         alt="Lord Ganesha"
         draggable={false}
         style={{
