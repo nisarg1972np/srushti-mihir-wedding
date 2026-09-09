@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #FDF6EC;
+  --color-cream-dark: #F5EBDA;
+  --color-saffron: #D4A017;
+  --color-saffron-light: #E8C547;
+  --color-gold: #C9952B;
+  --color-gold-shimmer: #F5D782;
+  --color-vermillion: #C0392B;
+  --color-vermillion-soft: #E74C3C;
+  --color-maroon: #7B2D26;
+  --color-maroon-deep: #5E1914;
+  --color-coral: #E8734A;
+  --color-marigold: #F5A623;
+  --color-bronze: #CD7F32;
+  --color-warm-brown: #6B4226;
+  --color-warm-gray: #8B7D6B;
+  --color-blush: #F8E8D6;
+  --color-ivory: #FFFBF0;
+
+  --font-display: 'Great Vibes', cursive;
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Poppins', sans-serif;
+  --font-hindi: 'Tiro Devanagari Hindi', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-cream);
+  color: var(--color-maroon);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-saffron);
+  color: var(--color-ivory);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-saffron);
+  border-radius: 3px;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-saffron) 0%,
+    var(--color-gold-shimmer) 25%,
+    var(--color-saffron) 50%,
+    var(--color-gold-shimmer) 75%,
+    var(--color-saffron) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes mandala-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.mandala-rotate {
+  animation: mandala-spin 120s linear infinite;
+}
+
+.mandala-rotate-reverse {
+  animation: mandala-spin 90s linear infinite reverse;
+}
+
+@keyframes float-down {
+  0% {
+    transform: translateY(-10vh) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.6; }
+  100% {
+    transform: translateY(110vh) rotate(720deg) translateX(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(212, 160, 23, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(212, 160, 23, 0.9));
+  }
+}
+
+.diya-glow {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
